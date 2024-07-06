@@ -1,0 +1,34 @@
+package com.jampa.JampaApi.model;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.math.BigDecimal;
+
+@NoArgsConstructor //Gracias a Lombok podemos usar estos paquetes o metodos para ahorra codigo.
+@AllArgsConstructor //Gracias a Lombok podemos usar estos paquetes o metodos para ahorra codigo.
+@Getter //Gracias a Lombok podemos usar estos paquetes o metodos para ahorra codigo.
+@Setter //Gracias a Lombok podemos usar estos paquetes o metodos para ahorra codigo.
+@Entity
+@Table(name = "productos") //Creacion de tabla
+public class Producto {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id_producto;
+  @Column(length = 35)
+  private String nombre_producto;
+  @Column(length = 35)
+  private String descripcion;
+  @Column(length = 35)
+  private String color;
+  @Column(length = 35)
+  private String talla;
+  @Column(precision = 10, scale = 2)//De esta manera se parametriza para que de dos decimales unicamente y en tipo de dato es BigDecimal
+  private BigDecimal precio_producto;
+  @Column(length = 6)
+  private String categoria;
+
+}
