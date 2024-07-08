@@ -11,11 +11,10 @@ import lombok.Setter;
 @Getter //Gracias a Lombok podemos usar estos paquetes o metodos para ahorra codigo.
 @Setter //Gracias a Lombok podemos usar estos paquetes o metodos para ahorra codigo.
 @Entity //Se determina que es una entidad
-@Table(name="usuarios") //Creacion de tabla
+@Table(name="usuarios") //Creación de tabla
 public class Usuario {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY) //Nos permite decirle al id que se incremente automaticamente.
-
   private Long id_usuario;
   @Column(length = 35)
   private String nombre_usuario;
@@ -25,6 +24,5 @@ public class Usuario {
   private String correo_usuario;
   @Column(length = 40)
   private String contrasena_usuario;
-
 
 }
