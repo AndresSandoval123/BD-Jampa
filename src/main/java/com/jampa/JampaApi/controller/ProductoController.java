@@ -65,5 +65,12 @@ public class ProductoController {
         return productoServices.buscarPorTermino(termino);
     }
 
+    // Modificar los datos de un producto
+    @PutMapping("/edit")
+    public String editProductos(@RequestBody Producto producto) {
+        productoServices.editProducto(producto);
+        return "Producto editado correctamente";
+    }
+
 
 }

@@ -18,7 +18,7 @@ VALUES ('Luis', 'García', 'luis.garcia@example.com', 'clave345');
 
 
 -- INSERT
--- Tabla Usuarios
+-- Tabla productos
 INSERT INTO productos (nombre_producto, descripcion, color, talla, precio_producto, categoria)
 VALUES ('Sudadera Casual', 'Sudadera cálida y confortable en diferentes colores', 'Negro', 'XXL', 2000000, 'Ropa Deportiva' );
 
