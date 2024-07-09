@@ -18,7 +18,7 @@ VALUES ('Luis', 'García', 'luis.garcia@example.com', 'clave345');
 
 
 -- INSERT
--- Tabla Usuarios
+-- Tabla productos
 INSERT INTO productos (nombre_producto, descripcion, color, talla, precio_producto, categoria)
 VALUES ('Sudadera Casual', 'Sudadera cálida y confortable en diferentes colores', 'Negro', 'XXL', 2000000, 'Ropa Deportiva' );
 
@@ -36,3 +36,26 @@ VALUES ('Buso deportivo', 'Buso casual para hombre calido y confortable', 'Negro
 
 INSERT INTO Productos (nombre_producto, descripcion, color, talla, precio_producto, categoria)
 VALUES ('Conjunto Pantaloneta', 'Conjunto para hombre comodo y confortable', 'Rojo', 'XXL', '10000', 'Ropa Deportiva');
+
+-- INSERT
+-- Tabla Ventas
+-- Ventas para el primer usuario (id_usuario = 1)
+INSERT INTO Ventas (fecha_venta, precio_total, valor_envio)
+VALUES ('2024-07-01', 20000, 10000);
+
+INSERT INTO Ventas (fecha_venta, precio_total, valor_envio)
+VALUES ('2024-07-01', 20000, 10000);
+
+INSERT INTO Ventas (fecha_venta, precio_total, valor_envio)
+VALUES ('2024-07-01', 15000, 10000);
+
+-- Ventas para el segundo usuario (id_usuario = 2)
+INSERT INTO Ventas (fecha_venta, precio_total, valor_envio)
+VALUES ('2024-07-01', 75000, 10000);
+
+INSERT INTO Ventas (fecha_venta, precio_total, valor_envio)
+VALUES ('2024-07-01', 60000, 10000);
+
+-- Venta para el tercer usuario (id_usuario = 3)
+INSERT INTO Ventas (fecha_venta, precio_total, valor_envio)
+VALUES ('2024-07-01', 15000, 10000);

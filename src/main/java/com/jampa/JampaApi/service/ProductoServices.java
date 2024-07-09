@@ -28,7 +28,7 @@ public class ProductoServices {
         productoRepository.deleteById(id);
     }
 
-    //buscar un solo producto
+    //buscar un producto por id
     public Producto findProducto(Long id) {
         return productoRepository.findById(id).orElse(null);
     }
@@ -38,9 +38,13 @@ public class ProductoServices {
         return productoRepository.findProductoByProducto(titulo);
     }
 
+    // buscar producto por termino deseado
     public List<Producto> buscarPorTermino(String termino) {
         return productoRepository.buscarPorTermino(termino);
     }
 
-
+    // editar un producto
+    public void editProducto(Producto producto) {
+        this.addProducto(producto);
+    }
 }
