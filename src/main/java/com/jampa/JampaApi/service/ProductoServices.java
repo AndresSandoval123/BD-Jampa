@@ -38,5 +38,9 @@ public class ProductoServices {
         return productoRepository.findProductoByProducto(titulo);
     }
 
+    public List<Producto> buscarPorTermino(String termino) {
+        return productoRepository.buscarPorTermino(termino);
+    }
+
 
 }

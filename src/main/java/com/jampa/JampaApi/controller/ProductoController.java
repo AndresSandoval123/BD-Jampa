@@ -59,7 +59,11 @@ public class ProductoController {
         return productoServices.buscarPorTitulo(nombre_producto);
     }
 
-
+    // busca cualquier coincidencia de la bd
+    @GetMapping("/buscar/{termino}")
+    public List<Producto> buscarProductos(@PathVariable String termino) {
+        return productoServices.buscarPorTermino(termino);
+    }
 
 
 }
