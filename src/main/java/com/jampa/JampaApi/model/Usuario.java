@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @NoArgsConstructor //Gracias a Lombok podemos usar estos paquetes o metodos para ahorra codigo.
 @AllArgsConstructor //Gracias a Lombok podemos usar estos paquetes o metodos para ahorra codigo.
 @Getter //Gracias a Lombok podemos usar estos paquetes o metodos para ahorra codigo.
@@ -24,5 +26,9 @@ public class Usuario {
   private String correo_usuario;
   @Column(length = 40)
   private String contrasena_usuario;
+
+  // un usuario pude tener muchos pedidos
+  @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<Pedido> pedidos;
 
 }

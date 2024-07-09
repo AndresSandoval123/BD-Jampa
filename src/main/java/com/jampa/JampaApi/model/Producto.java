@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @NoArgsConstructor //Gracias a Lombok podemos usar estos paquetes o metodos para ahorra codigo.
 @AllArgsConstructor //Gracias a Lombok podemos usar estos paquetes o metodos para ahorra codigo.
@@ -30,5 +31,12 @@ public class Producto {
   private BigDecimal precio_producto;
   @Column(length = 15)
   private String categoria;
+
+  @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
+  private List<Pedido> pedidos;
+
+  // un usuario pude tener muchos pedidos
+  @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<Imagen> imagen;
 
 }

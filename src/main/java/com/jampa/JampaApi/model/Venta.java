@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -27,4 +28,13 @@ public class Venta {
   /*Pendiente relacion
   Usuario, pedido y producto
    */
+
+  @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL)
+  private List<Pedido> pedidos;
+
+  // si elimina una venta elimina el detalle de venta
+  // fetch = FetchType.LAZ-> para que los detalles de ventas sean vistas facil desde el detalle de venta
+  @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+  @JoinColumn(name = "id_venta")
+  private DetalleEntrega detalleEntrega;
 }

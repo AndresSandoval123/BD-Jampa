@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -20,4 +22,9 @@ public class Imagen {
   /* Pendiente relación
   id_producto
    */
+
+  // un producto pude tener una o varias fotos
+  @ManyToOne
+  @JoinColumn(name = "id_producto", nullable = false)
+  private Producto producto;
 }

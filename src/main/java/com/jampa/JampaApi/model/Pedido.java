@@ -20,11 +20,17 @@ public class Pedido {
   private Long id_pedido;
   private int cantidad;
 
-  @OneToMany
-  @JoinColumn(name = "id_usuario")
-  private List<Usuario> usuario;
-  /* Pendiente relaciones con
-  Long id_usuario;
-  Long id_producto;
-  */
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "id_venta")
+  private Venta venta;
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "id_producto")
+  private Producto producto;
+
+  // un usuario pude tener muchos pedidos
+  @ManyToOne
+  @JoinColumn(name = "id_usuario", nullable = false)
+  private Usuario usuario;
+
 }
