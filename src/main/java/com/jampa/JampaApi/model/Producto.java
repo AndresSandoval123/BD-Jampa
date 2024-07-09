@@ -20,15 +20,15 @@ public class Producto {
   private Long id_producto;
   @Column(length = 35)
   private String nombre_producto;
-  @Column(length = 35)
+  @Column(length = 70)
   private String descripcion;
-  @Column(length = 35)
+  @Column(length = 10)
   private String color;
-  @Column(length = 35)
+  @Column(length = 5)
   private String talla;
   @Column(precision = 10, scale = 2)//De esta manera se parametriza para que de dos decimales unicamente y en tipo de dato es BigDecimal
   private BigDecimal precio_producto;
-  @Column(length = 6)
+  @Column(length = 15)
   private String categoria;
 
 }
