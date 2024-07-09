@@ -27,4 +27,16 @@ public class ProductoServices {
     public void eliminarProducto(Long id){
         productoRepository.deleteById(id);
     }
+
+    //buscar un solo producto
+    public Producto findProducto(Long id) {
+        return productoRepository.findById(id).orElse(null);
+    }
+
+    // Método para buscar libros por título usando JPQL
+    public List<Producto> buscarPorTitulo(String titulo) {
+        return productoRepository.findProductoByProducto(titulo);
+    }
+
+
 }

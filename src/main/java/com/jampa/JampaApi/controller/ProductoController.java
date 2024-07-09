@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/productos")
@@ -30,15 +31,35 @@ public class ProductoController {
 
     // ResponseEntity -> nos permite mandar mensaje de confirmación desde el servidor al cliente
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminarProducto(@PathVariable Long id){
+    public ResponseEntity<String> eliminarProducto(@PathVariable Long id) {
         try {
-            productoServices.eliminarProducto(id);
-            return new ResponseEntity<>("Producto eliminado con éxito", HttpStatus.OK);
-        } catch (EmptyResultDataAccessException e) {
-            return new ResponseEntity<>("Usuario no encontrado", HttpStatus.NOT_FOUND);
+            // Verificar si el producto existe
+            Producto producto = productoServices.findProducto(id);
+
+            if (producto != null) {
+                productoServices.eliminarProducto(id);
+                return new ResponseEntity<>("Producto eliminado con éxito", HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("Producto no encontrado", HttpStatus.NOT_FOUND);
+            }
         } catch (Exception e) {
-            // si no se pudo eliminar por cualquier otro error manda este ménsaje
-            return new ResponseEntity<>("Error al eliminar usuario: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Error al eliminar producto: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    // Método personalizado para buscar un Producto por su id
+    @GetMapping("/buscar-producto-id/{id}")
+    public Producto findProducto(@PathVariable Long id) {
+        return productoServices.findProducto(id);
+    }
+
+    // Consulta JPQL personalizada-avanzada
+    @GetMapping("/buscar-producto-titulo/{nombre_producto}")
+    public List<Producto> buscarProductoPorTitulo(@PathVariable String nombre_producto) {
+        return productoServices.buscarPorTitulo(nombre_producto);
+    }
+
+
+
+
 }
