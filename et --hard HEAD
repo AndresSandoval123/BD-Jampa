@@ -1,0 +1,107 @@
+[33mcommit 17c877e480ea1724eb371e8a4b0b6261b091c0f7[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Plinio <mcplinio.15@gmail.com>
+Date:   Tue Jul 9 17:56:13 2024 -0500
+
+    Agregar relaciones de tablas
+
+[33mcommit 6f3aec0e726f6e51c0d32643b015536f59ab4bea[m
+Merge: 6f96706 d21efdd
+Author: Mosquera Plinio <plinio.mosquera@genstudents.org>
+Date:   Tue Jul 9 14:58:42 2024 -0500
+
+    Merge pull request #4 from AndresSandoval123/imagen_plinio
+    
+    Imagen plinio
+
+[33mcommit 6f96706ec4c7c128091de371163cda52e9c538a9[m
+Merge: d20df16 e47551f
+Author: Mosquera Plinio <plinio.mosquera@genstudents.org>
+Date:   Tue Jul 9 14:58:16 2024 -0500
+
+    Merge pull request #3 from AndresSandoval123/ventas-plinio
+    
+    Ventas plinio
+
+[33mcommit d20df161eba07f135b2e51548d505367b86e99ff[m
+Merge: 7dc7000 5edd240
+Author: Mosquera Plinio <plinio.mosquera@genstudents.org>
+Date:   Tue Jul 9 14:57:40 2024 -0500
+
+    Merge pull request #2 from AndresSandoval123/producto_Plinio
+    
+    Producto plinio
+
+[33mcommit d21efdd117a489d7517bdd52e4c069a544fe7e9e[m[33m ([m[1;31morigin/imagen_plinio[m[33m)[m
+Author: Plinio <mcplinio.15@gmail.com>
+Date:   Tue Jul 9 14:53:19 2024 -0500
+
+    Relacion de tablas
+
+[33mcommit f25e40a4be35018eff4c09d13b9319b4e72356c0[m
+Author: Plinio <mcplinio.15@gmail.com>
+Date:   Tue Jul 9 14:18:22 2024 -0500
+
+    enpoind imagenes completado
+
+[33mcommit e47551f228ac1eb0f80532560dcdafd942d3cec4[m[33m ([m[1;31morigin/ventas-plinio[m[33m)[m
+Author: Plinio <mcplinio.15@gmail.com>
+Date:   Tue Jul 9 13:25:08 2024 -0500
+
+    enpoind detalle pedidos terminados
+
+[33mcommit ae59095f438dff0b346a6c7edb661cbcceff69a1[m
+Author: Plinio <mcplinio.15@gmail.com>
+Date:   Tue Jul 9 13:04:03 2024 -0500
+
+    enpoind pedidos terminados
+
+[33mcommit 68490846c9b0e368481c04a1232b1041ce159b58[m
+Author: Plinio <mcplinio.15@gmail.com>
+Date:   Tue Jul 9 06:59:02 2024 -0500
+
+    Agregar enpoind PUT, DELETE, GET en ventas
+
+[33mcommit 5edd2401808ccf5b4c5e6e509c933ab63671e7f1[m[33m ([m[1;31morigin/producto_Plinio[m[33m)[m
+Author: Plinio <mcplinio.15@gmail.com>
+Date:   Tue Jul 9 06:11:26 2024 -0500
+
+    Minsercion datos de prueba para producto y usuario
+
+[33mcommit a800340a53aa76cd42b772c2296f978a97e233a4[m
+Author: Plinio <mcplinio.15@gmail.com>
+Date:   Tue Jul 9 05:07:51 2024 -0500
+
+    Méodos  buscarproductos cualquier coincidencia
+
+[33mcommit 503c0da333cf3506c1c5912c8453a4e6859cb77d[m
+Author: Plinio <mcplinio.15@gmail.com>
+Date:   Tue Jul 9 04:52:03 2024 -0500
+
+    Méodos  buscarproductos ersonalisados
+
+[33mcommit 96997a46f7f854071f0685bc5355f2920537c0de[m
+Author: Plinio <mcplinio.15@gmail.com>
+Date:   Mon Jul 8 11:21:50 2024 -0500
+
+    agregar los empoint producto
+
+[33mcommit 7dc70006cec829078cecb5624a9c90b7dfea5723[m
+Merge: 34857ed eb4efc5
+Author: Mosquera Plinio <plinio.mosquera@genstudents.org>
+Date:   Mon Jul 8 09:42:54 2024 -0500
+
+    Merge pull request #1 from AndresSandoval123/master
+    
+    envio codigo de prueba
+
+[33mcommit eb4efc5d729acf69c82471e07743aeb6ec8d2d0d[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Plinio <mcplinio.15@gmail.com>
+Date:   Mon Jul 8 09:41:34 2024 -0500
+
+    envio codigo de prueba
+
+[33mcommit 34857edbec97b592ea7aa88689636ab1275719f8[m
+Author: Andres.Sandoval123 <andres.sandoval@genstudents.org>
+Date:   Sat Jul 6 00:40:42 2024 -0500
+
+    base Jampa

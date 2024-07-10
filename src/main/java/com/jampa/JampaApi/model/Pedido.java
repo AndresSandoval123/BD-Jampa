@@ -19,14 +19,15 @@ public class Pedido {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id_pedido;
   private int cantidad;
+  @Column(name = "producto_id", unique = true)
+  private Long pedidoId;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "id_venta")
   private Venta venta;
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "id_producto")
-  private Producto producto;
+  @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+  private List<Producto> productos;
 
   // un usuario pude tener muchos pedidos
   @ManyToOne

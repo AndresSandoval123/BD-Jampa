@@ -32,8 +32,10 @@ public class Producto {
   @Column(length = 15)
   private String categoria;
 
-  @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
-  private List<Pedido> pedidos;
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "producto_id", referencedColumnName = "producto_id")
+  private Pedido pedido;
+
 
   // un usuario pude tener muchos pedidos
   @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, orphanRemoval = true)
