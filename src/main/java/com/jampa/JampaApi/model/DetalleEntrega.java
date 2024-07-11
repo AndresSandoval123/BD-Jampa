@@ -1,5 +1,6 @@
 package com.jampa.JampaApi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,12 +22,18 @@ public class DetalleEntrega {
   private String persona_que_recibe;
   private String direccion_entrega;
   private String ciudad;
-  private int telefono_quien_recibe;
+  private String telefono_quien_recibe;
   /* Pendiente relación
   id_venta
    */
 
-  @OneToOne
+  // Relación con Venta
+  @OneToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "id_venta")
+  @JsonBackReference
   private Venta venta;
+
+//  @OneToOne
+//  @JoinColumn(name = "id_venta")
+//  private Venta venta;
 }

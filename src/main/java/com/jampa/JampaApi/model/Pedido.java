@@ -23,25 +23,23 @@ public class Pedido {
   private Long id_pedido;
   @Column(name = "cantidad")
   private int cantidad;
-  //@Column(name = "producto_id", unique = true)
-  //private Long pedidoId;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "producto_id")
-  //@JsonManagedReference
+  @JsonIgnore
   private Producto producto;
 
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "id_venta")
+  // Relación con Venta
+  @OneToOne(mappedBy = "pedido", cascade = CascadeType.ALL)
+//  @JsonBackReference
+  @JsonIgnore
   private Venta venta;
-
-
 
   // un usuario pude tener muchos pedidos
   @ManyToOne
   @JoinColumn(name = "id_usuario", nullable = false)
-  //@JsonBackReference
+//  @JsonBackReference// Evita la serialización circular si Usuario tiene referencia a Pedido
   @JsonIgnore
   private Usuario usuario;
 

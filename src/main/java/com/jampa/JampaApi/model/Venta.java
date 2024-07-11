@@ -1,5 +1,7 @@
 package com.jampa.JampaApi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,19 +24,20 @@ public class Venta {
   private Long id_venta;
   private Date fecha_venta;
   @Column(precision = 10, scale = 2)
-  private BigDecimal precio_total;
-  @Column(precision = 10, scale = 2)
   private BigDecimal valor_envio;
-  /*Pendiente relacion
-  Usuario, pedido y producto
-   */
 
-  @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL)
-  private List<Pedido> pedidos;
 
-  // si elimina una venta elimina el detalle de venta
-  // fetch = FetchType.LAZ-> para que los detalles de ventas sean vistas facil desde el detalle de venta
-  @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-  @JoinColumn(name = "id_venta")
+  // Relación con Pedido
+  @OneToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "id_pedido", referencedColumnName = "id_pedido")
+  @JsonManagedReference
+  private Pedido pedido;
+
+  // Relación con DetalleEntrega
+  @OneToOne(mappedBy = "venta", cascade = CascadeType.ALL)
+  @JsonManagedReference
   private DetalleEntrega detalleEntrega;
+
+  //@OneToOne(mappedBy = "venta", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+  //private DetalleEntrega detalleEntrega;
 }

@@ -23,6 +23,7 @@ public class PedidoServices {
         return pedidoRepository.save(pedido);
     }
 
+
     //Método eliminar un pedido
     public void eliminarProducto(Long id){
         pedidoRepository.deleteById(id);
@@ -37,4 +38,9 @@ public class PedidoServices {
     public void editPedido(Pedido pedido) {
         this.addPedido(pedido);
     }
+
+//    public Pedido guardarPedido(Pedido pedido) {
+//        // Aquí podrías realizar alguna lógica adicional antes de guardar
+//        return pedidoRepository.save(pedido);
+//    }
 }

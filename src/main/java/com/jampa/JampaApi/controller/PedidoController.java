@@ -1,9 +1,7 @@
 package com.jampa.JampaApi.controller;
 
 import com.jampa.JampaApi.model.Pedido;
-import com.jampa.JampaApi.model.Producto;
 import com.jampa.JampaApi.service.PedidoServices;
-import com.jampa.JampaApi.service.ProductoServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +22,7 @@ public class PedidoController {
     }
 
     @PostMapping("/agregar")
-    public Pedido addPedido(@RequestBody Pedido pedido){
+    public Pedido addPedi(@RequestBody Pedido pedido){
         return pedidoServices.addPedido(pedido);
     }
 

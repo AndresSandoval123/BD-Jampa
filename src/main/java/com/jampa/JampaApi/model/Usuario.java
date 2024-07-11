@@ -31,7 +31,8 @@ public class Usuario {
 
   // un usuario pude tener muchos pedidos
   @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-  //@JsonManagedReference // evitar la recursión infinita al serialización JSON.
   private List<Pedido> pedidos;
+
+  //@JsonIgnore
 
 }
