@@ -28,10 +28,9 @@ public class Venta {
 
 
   // Relación con Pedido
-//  @OneToOne(fetch = FetchType.LAZY)
-//  @JoinColumn(name = "id_pedido", referencedColumnName = "id_pedido")
-//  @JsonManagedReference
-//  private Pedido pedidos;
+  @OneToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "id_pedido", referencedColumnName = "id_pedido")
+  private Pedido pedido;
 
   // Relación con DetalleEntrega
   @OneToOne(mappedBy = "venta", cascade = CascadeType.ALL)

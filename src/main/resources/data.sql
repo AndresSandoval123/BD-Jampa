@@ -84,28 +84,28 @@ VALUES (1, 2, 1),
 --
 
 -- INSERT
--- Tabla Imagenes
---INSERT INTO Imagen (url_imagen, id_producto)
---VALUES ('https://i.postimg.cc/zf1mbbkX/Ref-1-Casual-Negro.png', 1),
---		('https://i.postimg.cc/0NGTpktG/Ref-1-Casual-Gris-Claro.png', 1);
+
+INSERT INTO Imagen (url_imagen, id_producto)
+VALUES ('https://i.postimg.cc/zf1mbbkX/Ref-1-Casual-Negro.png', 1),
+		('https://i.postimg.cc/0NGTpktG/Ref-1-Casual-Gris-Claro.png', 1);
 
 -- Imágenes para el producto con id_producto = 2
---INSERT INTO Imagen (url_imagen, id_producto)
---VALUES ('https://i.postimg.cc/6QhP8H3Y/Ref-3-Conj-Pantaloneta-Azul.png', 2),
---		('https://i.postimg.cc/BnHk0ZGW/Ref-3-Conj-Pantaloneta-Negro.png', 2);
---
---
----- Imágenes para el producto con id_producto = 3
---INSERT INTO Imagen (url_imagen, id_producto)
---VALUES ('https://i.postimg.cc/HsfRRcR4/Ref-2-Buso-Capota-Gris.png', 3),
---		('https://i.postimg.cc/442rvF10/Ref-2-Buso-Capota-Beige.png', 3);
---
----- Imágenes para el producto con id_producto = 4
---INSERT INTO Imagen (url_imagen, id_producto)
---VALUES ('https://i.postimg.cc/6QhP8H3Y/Ref-3-Conj-Pantaloneta-Azul.png', 4),
---		('https://i.postimg.cc/BnHk0ZGW/Ref-3-Conj-Pantaloneta-Negro.png', 4);
---
----- Imágenes para el producto con id_producto = 5
---INSERT INTO Imagen (url_imagen, id_producto)
---VALUES ('https://i.postimg.cc/6QhP8H3Y/Ref-3-Conj-Pantaloneta-Azul.png', 5),
---		('https://i.postimg.cc/BnHk0ZGW/Ref-3-Conj-Pantaloneta-Negro.png', 5);
+INSERT INTO Imagen (url_imagen, id_producto)
+VALUES ('https://i.postimg.cc/6QhP8H3Y/Ref-3-Conj-Pantaloneta-Azul.png', 2),
+		('https://i.postimg.cc/BnHk0ZGW/Ref-3-Conj-Pantaloneta-Negro.png', 2);
+
+
+-- Imágenes para el producto con id_producto = 3
+INSERT INTO Imagen (url_imagen, id_producto)
+VALUES ('https://i.postimg.cc/HsfRRcR4/Ref-2-Buso-Capota-Gris.png', 3),
+		('https://i.postimg.cc/442rvF10/Ref-2-Buso-Capota-Beige.png', 3);
+
+-- Imágenes para el producto con id_producto = 4
+INSERT INTO Imagen (url_imagen, id_producto)
+VALUES ('https://i.postimg.cc/6QhP8H3Y/Ref-3-Conj-Pantaloneta-Azul.png', 4),
+		('https://i.postimg.cc/BnHk0ZGW/Ref-3-Conj-Pantaloneta-Negro.png', 4);
+
+-- Imágenes para el producto con id_producto = 5
+INSERT INTO Imagen (url_imagen, id_producto)
+VALUES ('https://i.postimg.cc/6QhP8H3Y/Ref-3-Conj-Pantaloneta-Azul.png', 5),
+		('https://i.postimg.cc/BnHk0ZGW/Ref-3-Conj-Pantaloneta-Negro.png', 5);

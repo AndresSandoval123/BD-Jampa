@@ -35,10 +35,9 @@ public class Pedido {
 
 
   // Relación con Venta
-//  @OneToOne(mappedBy = "pedidos", cascade = CascadeType.ALL)
-////  @JsonBackReference
-//  @JsonIgnore
-//  private Venta venta;
+  // Relación con Venta
+  @OneToOne(mappedBy = "pedido", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  private Venta venta;
 
 
 }
