@@ -2,6 +2,7 @@ package com.jampa.JampaApi.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -43,7 +44,7 @@ public class Producto {
 
   // un usuario pude tener muchos pedidos
   @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, orphanRemoval = true)
-  @JsonIgnore
+  //@JsonIgnore
   private List<Imagen> imagen;
 
 }

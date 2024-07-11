@@ -28,14 +28,14 @@ public class Venta {
 
 
   // Relación con Pedido
-  @OneToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "id_pedido", referencedColumnName = "id_pedido")
-  @JsonManagedReference
-  private Pedido pedido;
+//  @OneToOne(fetch = FetchType.LAZY)
+//  @JoinColumn(name = "id_pedido", referencedColumnName = "id_pedido")
+//  @JsonManagedReference
+//  private Pedido pedidos;
 
   // Relación con DetalleEntrega
   @OneToOne(mappedBy = "venta", cascade = CascadeType.ALL)
-  @JsonManagedReference
+//  @JsonManagedReference
   private DetalleEntrega detalleEntrega;
 
   //@OneToOne(mappedBy = "venta", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)

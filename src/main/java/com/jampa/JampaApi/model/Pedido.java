@@ -26,21 +26,19 @@ public class Pedido {
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "producto_id")
-  @JsonIgnore
   private Producto producto;
+
+  // un usuario pude tener muchos pedidos
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "id_usuario", nullable = false)
+  private Usuario usuario;
 
 
   // Relación con Venta
-  @OneToOne(mappedBy = "pedido", cascade = CascadeType.ALL)
-//  @JsonBackReference
-  @JsonIgnore
-  private Venta venta;
+//  @OneToOne(mappedBy = "pedidos", cascade = CascadeType.ALL)
+////  @JsonBackReference
+//  @JsonIgnore
+//  private Venta venta;
 
-  // un usuario pude tener muchos pedidos
-  @ManyToOne
-  @JoinColumn(name = "id_usuario", nullable = false)
-//  @JsonBackReference// Evita la serialización circular si Usuario tiene referencia a Pedido
-  @JsonIgnore
-  private Usuario usuario;
 
 }
