@@ -22,6 +22,7 @@ public class Venta {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id_venta;
+  @Temporal(TemporalType.TIMESTAMP) // inserte automaticamente
   private Date fecha_venta;
   @Column(precision = 10, scale = 2)
   private BigDecimal valor_envio;
@@ -37,6 +38,9 @@ public class Venta {
 //  @JsonManagedReference
   private DetalleEntrega detalleEntrega;
 
-  //@OneToOne(mappedBy = "venta", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-  //private DetalleEntrega detalleEntrega;
+  @PrePersist
+  protected void onCreate() {
+    fecha_venta = new Date(); // Establece la fecha actual al momento de crear la venta
+  }
+
 }
