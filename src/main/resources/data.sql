@@ -43,9 +43,9 @@ VALUES ('Conjunto Pantaloneta', 'Conjunto para hombre comodo y confortable', 'Ro
 -- Pedidos para el primer usuario (id_usuario = 1)
 INSERT INTO Pedidos (cantidad, producto_id, id_usuario)
 VALUES (1, 2, 1),
-		(5, 3, 1);
---		(2, 6, 2),
---        (2, 5, 3),
+		(5, 3, 2),
+		(2, 6, 2),
+        (2, 5, 3);
 --        (2, 2, 4);
 
 
@@ -53,14 +53,14 @@ VALUES (1, 2, 1),
 -- INSERT
 -- Tabla Ventas
 -- Ventas para el primer usuario (id_usuario = 1)
---INSERT INTO Ventas (fecha_venta, valor_envio, id_pedido)
---VALUES ('2024-07-01', 10000, 1);
+INSERT INTO Ventas (fecha_venta, valor_envio, id_pedido)
+VALUES ('2024-07-01', 10000, 1);
 --
---INSERT INTO Ventas (fecha_venta, valor_envio, id_pedido)
---VALUES ('2024-05-01', 15000, 2);
+INSERT INTO Ventas (fecha_venta, valor_envio, id_pedido)
+VALUES ('2024-05-01', 15000, 2);
 --
---INSERT INTO Ventas (fecha_venta, valor_envio, id_pedido)
---VALUES ('2021-02-01', 10000, 3);
+INSERT INTO Ventas (fecha_venta, valor_envio, id_pedido)
+VALUES ('2021-02-01', 10000, 3);
 --INSERT INTO Ventas (fecha_venta, valor_envio, id_pedido)
 --VALUES ('2024-07-01', 10000, 4);
 --
