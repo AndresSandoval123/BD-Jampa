@@ -19,9 +19,13 @@ public class DetalleEntrega {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id_entrega;
+  @Column(length = 35)
   private String persona_que_recibe;
+  @Column(length = 35)
   private String direccion_entrega;
+  @Column(length = 50)
   private String ciudad;
+  @Column(length = 15)
   private String telefono_quien_recibe;
   /* Pendiente relación
   id_venta
