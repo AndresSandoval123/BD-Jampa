@@ -1,6 +1,7 @@
 package com.jampa.JampaApi.controller;
 
 import com.jampa.JampaApi.dto.VentaDTO;
+import com.jampa.JampaApi.dto.VentaDetalleDTO;
 import com.jampa.JampaApi.model.Venta;
 import com.jampa.JampaApi.service.VentaServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,11 @@ public class VentaController {
     @GetMapping("/todos")
     public List<Venta> getAllVentas(){
         return ventaServices.getAllVentas();
+    }
+
+    @GetMapping("/ven-detalle")
+    public List<VentaDetalleDTO> obtenerDetallesVenta() {
+        return ventaServices.obtenerVentasDetalle();  // Utiliza el servicio para obtener los detalles de ventas
     }
 
     @GetMapping("/todas")

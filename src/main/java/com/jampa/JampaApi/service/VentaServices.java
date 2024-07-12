@@ -2,6 +2,7 @@ package com.jampa.JampaApi.service;
 
 import com.jampa.JampaApi.dto.PedidoDTO;
 import com.jampa.JampaApi.dto.VentaDTO;
+import com.jampa.JampaApi.dto.VentaDetalleDTO;
 import com.jampa.JampaApi.model.Pedido;
 import com.jampa.JampaApi.model.Venta;
 import com.jampa.JampaApi.repository.VentaRepository;
@@ -19,6 +20,11 @@ public class VentaServices {
 
     @Autowired
     private PedidoServices pedidoService;
+
+    // detalles especificos de una venta en general
+    public List<VentaDetalleDTO> obtenerVentasDetalle() {
+        return ventaRepository.obtenerVentasDetalle();
+    }
 
     //Método agregar una venta
     @Transactional
