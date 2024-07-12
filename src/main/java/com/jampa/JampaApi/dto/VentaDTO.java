@@ -13,12 +13,25 @@ import java.util.Date;
 @Getter
 @Setter
 public class VentaDTO {
+    // consulta de ventas
     private Long id_venta;
     private Date fecha_venta;
+    private Boolean estado;
     private BigDecimal valor_envio;
     private PedidoDTO pedido;
 
 
-    // Constructor y métodos getter/setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Getter
+    @Setter
+    public static class PedidoDTO {
+        //actualización del dto para que en la respuesta me traiga el estado
+        private Long id_pedido;
+        private int cantidad;
+        private String nombre_usuario;
+    }
+
+
 
 }

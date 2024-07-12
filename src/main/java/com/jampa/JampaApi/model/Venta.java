@@ -26,6 +26,8 @@ public class Venta {
   private Date fecha_venta;
   @Column(precision = 10, scale = 2)
   private BigDecimal valor_envio;
+  @Column(nullable = false)
+  private Boolean estado = true; // valor por defecto
 
 
   // Relación con Pedido

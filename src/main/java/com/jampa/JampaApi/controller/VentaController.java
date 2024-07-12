@@ -17,16 +17,15 @@ public class VentaController {
     @Autowired
     private VentaServices ventaServices;
 
-    @GetMapping("/todos")
-    public List<Venta> getAllVentas(){
-        return ventaServices.getAllVentas();
-    }
+//    @GetMapping("/todos")
+//    public List<Venta> getAllVentas(){
+//        return ventaServices.getAllVentas();
+//    }
 
     @GetMapping("/todas")
-    public ResponseEntity<List<VentaDTO>> obtenerTodasLasVentas() {
-        List<Venta> ventas = ventaServices.getAllVentas();
-        List<VentaDTO> ventasDTO = ventaServices.convertirAVentaDTOList(ventas);
-        return new ResponseEntity<>(ventasDTO, HttpStatus.OK);
+    public ResponseEntity<List<VentaDTO>> getAllVentas() {
+        List<VentaDTO> ventasDTO = ventaServices.getAllVentas();
+        return ResponseEntity.ok(ventasDTO);
     }
 
     @PostMapping("/agregar")
@@ -66,15 +65,14 @@ public class VentaController {
 
 
     // Método personalizado para buscar una Venta por su id
-    @GetMapping("buscar/{id}")
+    @GetMapping("/buscar/{id}")
     public ResponseEntity<?> obtenerVentaPorId(@PathVariable Long id) {
         Venta venta = ventaServices.findVenta(id);
         if (venta == null) {
             return new ResponseEntity<>("Venta no encontrada con ID: " + id, HttpStatus.NOT_FOUND);
         }
-        VentaDTO ventaDTO = ventaServices.convertirAVentaDTO(venta);
+        VentaDTO ventaDTO = ventaServices.convertirAVentaDTO(venta); // Aquí debería funcionar correctamente
         return new ResponseEntity<>(ventaDTO, HttpStatus.OK);
     }
-
 
 }

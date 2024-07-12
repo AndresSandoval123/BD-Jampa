@@ -9,16 +9,30 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class VentaServices {
+
     @Autowired //Inyectamos la dependencia del VentaServices
     private VentaRepository ventaRepository;
 
     @Autowired
     private PedidoServices pedidoService;
+
+    ///
+    @Autowired
+    private ModelMapper modelMapper; // Necesario para la conversión de entidades a DTOs
+
+    public List<VentaDTO> getAllVentas() {
+        List<Venta> ventas = ventaRepository.findAll();
+        return ventas.stream().map(this::convertToDTOVenta).collect(Collectors.toList());
+    }
+
+
 
     //Método agregar una venta
     @Transactional
@@ -49,39 +63,56 @@ public class VentaServices {
         return addVenta(venta);
     }
 
-
-    public VentaDTO convertirAVentaDTO(Venta venta) {
-        VentaDTO ventaDTO = new VentaDTO();
-        ventaDTO.setId_venta(venta.getId_venta());
-        ventaDTO.setFecha_venta(venta.getFecha_venta());
-        ventaDTO.setValor_envio(venta.getValor_envio());
-
-        // Configuramos el Pedido dentro del DTO
-        PedidoDTO pedidoDTO = new PedidoDTO();
-
-        pedidoDTO.setId_pedido(venta.getPedido().getId_pedido());
-        pedidoDTO.setCantidad(venta.getPedido().getCantidad());
-        pedidoDTO.setNombre_usuario(venta.getPedido().getUsuario().getNombre_usuario());
-
-        ventaDTO.setPedido(pedidoDTO);
-
-        return ventaDTO;
-    }
-
-    public List<VentaDTO> convertirAVentaDTOList(List<Venta> ventas) {
-        List<VentaDTO> ventaDTOList = new ArrayList<>();
-        for (Venta venta : ventas) {
-            VentaDTO ventaDTO = convertirAVentaDTO(venta);
-            ventaDTOList.add(ventaDTO);
+    private VentaDTO convertToDTO(Venta venta) {
+        VentaDTO.PedidoDTO pedidoDTO = new VentaDTO.PedidoDTO();
+        if (venta.getPedido() != null) {
+            pedidoDTO.setId_pedido(venta.getPedido().getId_pedido());
+            pedidoDTO.setCantidad(venta.getPedido().getCantidad());
+            pedidoDTO.setNombre_usuario(venta.getPedido().getUsuario().getNombre_usuario());
         }
-        return ventaDTOList;
+        return new VentaDTO(
+                        venta.getId_venta(),
+                        venta.getFecha_venta(),
+                venta.getEstado() != null ? venta.getEstado() : true, // Maneja valor_envio nulo
+                venta.getValor_envio() != null ? venta.getValor_envio() : BigDecimal.ZERO, // Maneja estado nulo, default true
+                        pedidoDTO
+                );
     }
+
+    //convertimos Venta a VentaDTO
+    private VentaDTO convertToDTO(Venta venta) {
+        VentaDTO.PedidoDTO pedidoDTO = new VentaDTO.PedidoDTO();
+        if (venta.getPedido() != null) {
+            pedidoDTO.setId_pedido(venta.getPedido().getId_pedido());
+            pedidoDTO.setCantidad(venta.getPedido().getCantidad());
+            pedidoDTO.setNombre_usuario(venta.getPedido().getUsuario().getNombre_usuario());
+        }
+        // Asignar un valor por defecto para estado si es nulo
+        Boolean estadoVenta = venta.getEstado() != null ? venta.getEstado() : true;
+
+        return new VentaDTO(
+                venta.getId_venta(),
+                venta.getFecha_venta(),
+                venta.getValor_envio(),
+                estadoVenta,
+                pedidoDTO
+        );
+    }
+//
+//    public List<VentaDTO> convertirAVentaDTOList(List<Venta> ventas) {
+//        List<VentaDTO> ventaDTOList = new ArrayList<>();
+//        for (Venta venta : ventas) {
+//            VentaDTO ventaDTO = convertirAVentaDTO(venta);
+//            ventaDTOList.add(ventaDTO);
+//        }
+//        return ventaDTOList;
+//    }
 
 
     //Método ver todas las ventas
-    public List<Venta> getAllVentas(){
-        return ventaRepository.findAll();
-    }
+//    public List<Venta> getAllVentas(){
+//        return ventaRepository.findAll();
+//    }
 
 
     //Método eliminar una venta

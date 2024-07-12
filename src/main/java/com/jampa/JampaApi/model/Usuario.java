@@ -27,7 +27,7 @@ public class Usuario {
   private String apellido_usuario;
   @Column(length = 40)
   private String correo_usuario;
-  @Column(length = 50)
+  @Column(length = 40)
   private String contrasena_usuario;
 
   // un usuario pude tener muchos pedidos
