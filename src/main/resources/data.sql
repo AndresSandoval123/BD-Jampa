@@ -70,11 +70,11 @@ VALUES ('2021-02-01', 10000, 3);
 
 -- INSERT
 -- Tabla Detalle_entrega
---INSERT INTO Detalle_entrega (id_entrega, persona_que_recibe, direccion_entrega, ciudad, telefono_quien_recibe, id_venta)
---VALUES (1, 'Juan Pérez', 'Calle 12 3-20', 'Bogotá', '3203456789', 1);
+INSERT INTO Detalle_entrega (id_entrega, persona_que_recibe, direccion_entrega, ciudad, telefono_quien_recibe, id_venta)
+VALUES (1, 'Juan Pérez', 'Calle 12 3-20', 'Bogotá', '3203456789', 1);
 --
---INSERT INTO Detalle_entrega (persona_que_recibe, direccion_entrega, ciudad, telefono_quien_recibe, id_venta)
---VALUES ('Juan Pérez', 'Calle 12 3-20', 'Bogotá', 3203456789, 2);
+INSERT INTO Detalle_entrega (persona_que_recibe, direccion_entrega, ciudad, telefono_quien_recibe, id_venta)
+VALUES ('Juan Pérez', 'Calle 12 3-20', 'Bogotá', 3203456789, 2);
 --
 --INSERT INTO Detalle_entrega (persona_que_recibe, direccion_entrega, ciudad, telefono_quien_recibe, id_venta)
 --VALUES ('María López', 'Cr 25 # 75 C1', 'Medellin', 3103656289, 3);
