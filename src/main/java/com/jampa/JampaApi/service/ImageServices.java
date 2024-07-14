@@ -35,7 +35,7 @@ public class ImageServices {
     }
 
     // editar una imagen
-    public void editImagen(Imagen imagen) {
-        this.agregarImagen(imagen);
-    }
+//    public void editImagen(Imagen imagen) {
+//        this.agregarImagen(imagen);
+//    }
 }

@@ -28,7 +28,7 @@ public class ImagenController {
     }
 
     // ResponseEntity -> nos permite mandar mensaje de confirmación desde el servidor al cliente
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> eliminarImagen(@PathVariable Long id) {
         try {
             // Verificar si la imagen existe
@@ -46,16 +46,16 @@ public class ImagenController {
     }
 
     // Método personalizado para buscar un Producto por su id
-    @GetMapping("/buscar-imagen-id/{id}")
+    @GetMapping("/buscar/{id}")
     public Imagen findProducto(@PathVariable Long id) {
         return imageServices.findImagen(id);
     }
 
     // Modificar datos de una imagen
-    @PutMapping("/edit")
-    public String editImagen(@RequestBody Imagen imagen) {
-        imageServices.editImagen(imagen);
-        return "Imagen editada correctamente";
-    }
+//    @PutMapping("/edit")
+//    public String editImagen(@RequestBody Imagen imagen) {
+//        imageServices.editImagen(imagen);
+//        return "Imagen editada correctamente";
+//    }
 
 }

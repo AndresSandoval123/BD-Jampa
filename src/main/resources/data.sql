@@ -58,7 +58,7 @@ INSERT INTO Ventas (fecha_venta, valor_envio, id_pedido)
 VALUES ('2024-05-01', 15000, 2);
 --
 INSERT INTO Ventas (fecha_venta, valor_envio, id_pedido)
-
+VALUES ('2021-02-01', 10000, 3);
 
 -- INSERT
 -- Tabla Detalle_entrega
@@ -70,7 +70,8 @@ VALUES ('Juan Pérez', 'Calle 12 3-20', 'Bogotá', 3203456789, 2);
 
 
 -- INSERT
--- Insertar imagenes
+--instertar datos para la tabla de imagenes
+
 INSERT INTO Imagen (url_imagen, id_producto)
 VALUES ('https://i.postimg.cc/zf1mbbkX/Ref-1-Casual-Negro.png', 1),
 		('https://i.postimg.cc/0NGTpktG/Ref-1-Casual-Gris-Claro.png', 1);
@@ -92,6 +93,6 @@ VALUES ('https://i.postimg.cc/6QhP8H3Y/Ref-3-Conj-Pantaloneta-Azul.png', 4),
 		('https://i.postimg.cc/BnHk0ZGW/Ref-3-Conj-Pantaloneta-Negro.png', 4);
 
 -- Imágenes para el producto con id_producto = 5
-INSERT INTO Imagen (url_imagen, id_producto)
-VALUES ('https://i.postimg.cc/6QhP8H3Y/Ref-3-Conj-Pantaloneta-Azul.png', 5),
-		('https://i.postimg.cc/BnHk0ZGW/Ref-3-Conj-Pantaloneta-Negro.png', 5);
+--INSERT INTO Imagen (url_imagen, id_producto)
+--VALUES ('https://i.postimg.cc/6QhP8H3Y/Ref-3-Conj-Pantaloneta-Azul.png', 5),
+--		('https://i.postimg.cc/BnHk0ZGW/Ref-3-Conj-Pantaloneta-Negro.png', 5);
