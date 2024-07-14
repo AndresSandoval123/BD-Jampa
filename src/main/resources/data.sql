@@ -46,8 +46,6 @@ VALUES (1, 2, 1),
 		(5, 3, 2),
 		(2, 6, 2),
         (2, 5, 3);
---        (2, 2, 4);
-
 
 
 -- INSERT
@@ -60,12 +58,6 @@ INSERT INTO Ventas (fecha_venta, valor_envio, id_pedido)
 VALUES ('2024-05-01', 15000, 2);
 --
 INSERT INTO Ventas (fecha_venta, valor_envio, id_pedido)
-VALUES ('2021-02-01', 10000, 3);
---INSERT INTO Ventas (fecha_venta, valor_envio, id_pedido)
---VALUES ('2024-07-01', 10000, 4);
---
---INSERT INTO Ventas (fecha_venta, valor_envio, id_pedido)
---VALUES ('2024-05-01', 15000, 5);
 
 
 -- INSERT
@@ -75,16 +67,10 @@ VALUES (1, 'Juan Pérez', 'Calle 12 3-20', 'Bogotá', '3203456789', 1);
 --
 INSERT INTO Detalle_entrega (persona_que_recibe, direccion_entrega, ciudad, telefono_quien_recibe, id_venta)
 VALUES ('Juan Pérez', 'Calle 12 3-20', 'Bogotá', 3203456789, 2);
---
---INSERT INTO Detalle_entrega (persona_que_recibe, direccion_entrega, ciudad, telefono_quien_recibe, id_venta)
---VALUES ('María López', 'Cr 25 # 75 C1', 'Medellin', 3103656289, 3);
---
---INSERT INTO Detalle_entrega (persona_que_recibe, direccion_entrega, ciudad, telefono_quien_recibe, id_venta)
---VALUES ('María López', 'Cr 25 # 75 C1', 'Medellin', 3103656289, 5);
---
+
 
 -- INSERT
-
+-- Insertar imagenes
 INSERT INTO Imagen (url_imagen, id_producto)
 VALUES ('https://i.postimg.cc/zf1mbbkX/Ref-1-Casual-Negro.png', 1),
 		('https://i.postimg.cc/0NGTpktG/Ref-1-Casual-Gris-Claro.png', 1);
