@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/productos")
+@RequestMapping("/api/v1/productos")
 public class ProductoController {
     @Autowired
     private ProductoServices productoServices;
@@ -66,11 +66,10 @@ public class ProductoController {
     }
 
     // Modificar los datos de un producto
-    @PutMapping("/edit")
-    public String editProductos(@RequestBody Producto producto) {
-        productoServices.editProducto(producto);
+    @PutMapping("/{id}/edit")
+    public String editProducto(@PathVariable Long id, @RequestBody Producto productoActualizado) {
+        productoServices.editProducto(id, productoActualizado);
         return "Producto editado correctamente";
     }
-
 
 }

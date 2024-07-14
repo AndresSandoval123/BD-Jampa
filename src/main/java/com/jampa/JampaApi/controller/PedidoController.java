@@ -1,9 +1,8 @@
 package com.jampa.JampaApi.controller;
 
 import com.jampa.JampaApi.model.Pedido;
-import com.jampa.JampaApi.model.Producto;
+import com.jampa.JampaApi.service.PedidoDTO;
 import com.jampa.JampaApi.service.PedidoServices;
-import com.jampa.JampaApi.service.ProductoServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,21 +11,29 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/pedido")
+@RequestMapping("/api/v1/pedidos")
 public class PedidoController {
 
     @Autowired
     private PedidoServices pedidoServices;
 
     @GetMapping("/todos")
-    public List<Pedido> getAllPedidos(){
-        return pedidoServices.getAllPedidos();
+    public ResponseEntity<List<PedidoDTO>> getAllPedidos() {
+        List<PedidoDTO> pedidosDTO = pedidoServices.getAllPedidosDTO();
+        return ResponseEntity.ok(pedidosDTO);
+    }
+
+    public ResponseEntity<Pedido> addPedido(@RequestBody Pedido pedido) {
+        Pedido nuevoPedido = pedidoServices.addPedido(pedido);
+        return new ResponseEntity<>(nuevoPedido, HttpStatus.CREATED);
     }
 
     @PostMapping("/agregar")
-    public Pedido addPedido(@RequestBody Pedido pedido){
-        return pedidoServices.addPedido(pedido);
+    public ResponseEntity<Pedido> agregarPedido(@RequestBody Pedido pedido) {
+        Pedido nuevoPedido = pedidoServices.addPedido(pedido);
+        return ResponseEntity.ok().body(nuevoPedido);
     }
+
 
     // ResponseEntity -> nos permite mandar mensaje de confirmación desde el servidor al cliente
     @DeleteMapping("/{id}")

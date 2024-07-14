@@ -1,5 +1,8 @@
 package com.jampa.JampaApi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,7 +31,10 @@ public class Usuario {
   private String contrasena_usuario;
 
   // un usuario pude tener muchos pedidos
-  @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+  @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+  @JsonIgnore
   private List<Pedido> pedidos;
+
+  //@JsonIgnore
 
 }

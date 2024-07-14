@@ -1,5 +1,6 @@
 package com.jampa.JampaApi.controller;
 
+import com.jampa.JampaApi.dto.VentaDTO;
 import com.jampa.JampaApi.model.Venta;
 import com.jampa.JampaApi.service.VentaServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,14 +17,26 @@ public class VentaController {
     @Autowired
     private VentaServices ventaServices;
 
-    @GetMapping("/todos")
-    public List<Venta> getAllVentas(){
-        return ventaServices.getAllVentas();
+//    @GetMapping("/todos")
+//    public List<Venta> getAllVentas(){
+//        return ventaServices.getAllVentas();
+//    }
+
+    @GetMapping("/todas")
+    public ResponseEntity<List<VentaDTO>> getAllVentas() {
+        List<VentaDTO> ventasDTO = ventaServices.getAllVentas();
+        return ResponseEntity.ok(ventasDTO);
     }
 
     @PostMapping("/agregar")
-    public Venta addVenta(@RequestBody Venta venta){
-        return ventaServices.addVenta(venta);
+    public ResponseEntity<?> agregarVenta(@RequestBody VentaDTO ventaDTO) {
+        try {
+            Venta venta = ventaServices.crearVenta(ventaDTO);
+            VentaDTO responseDTO = ventaServices.convertirAVentaDTO(venta);
+            return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 
     // ResponseEntity -> nos permite mandar mensaje de confirmación desde el servidor al cliente
@@ -44,11 +57,22 @@ public class VentaController {
         }
     }
 
-    // Método personalizado para buscar una Venta por su id
-    @GetMapping("/buscar-venta-id/{id}")
-    public Venta findProducto(@PathVariable Long id) {
-        return ventaServices.findVenta(id);
-    }
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity<Void> eliminarVenta(@PathVariable Long id) {
+//        ventaServices.eliminarVenta(id);
+//        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//    }
 
+
+    // Método personalizado para buscar una Venta por su id
+    @GetMapping("/buscar/{id}")
+    public ResponseEntity<?> obtenerVentaPorId(@PathVariable Long id) {
+        Venta venta = ventaServices.findVenta(id);
+        if (venta == null) {
+            return new ResponseEntity<>("Venta no encontrada con ID: " + id, HttpStatus.NOT_FOUND);
+        }
+        VentaDTO ventaDTO = ventaServices.convertirAVentaDTO(venta); // Aquí debería funcionar correctamente
+        return new ResponseEntity<>(ventaDTO, HttpStatus.OK);
+    }
 
 }

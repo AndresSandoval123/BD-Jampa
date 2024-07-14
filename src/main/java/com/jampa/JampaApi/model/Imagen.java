@@ -1,5 +1,6 @@
 package com.jampa.JampaApi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,5 +27,6 @@ public class Imagen {
   // un producto pude tener una o varias fotos
   @ManyToOne
   @JoinColumn(name = "id_producto", nullable = false)
+  @JsonIgnore
   private Producto producto;
 }

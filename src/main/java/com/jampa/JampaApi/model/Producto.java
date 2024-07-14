@@ -1,5 +1,8 @@
 package com.jampa.JampaApi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,18 +30,21 @@ public class Producto {
   private String color;
   @Column(length = 5)
   private String talla;
+  @Column(name = "stock_disponible")
+  private int stockDisponible;
   @Column(precision = 10, scale = 2)//De esta manera se parametriza para que de dos decimales unicamente y en tipo de dato es BigDecimal
   private BigDecimal precio_producto;
   @Column(length = 15)
   private String categoria;
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "producto_id", referencedColumnName = "producto_id")
-  private Pedido pedido;
+  @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
+  @JsonIgnore
+  private List<Pedido> pedidos;
 
 
   // un usuario pude tener muchos pedidos
   @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, orphanRemoval = true)
+  //@JsonIgnore
   private List<Imagen> imagen;
 
 }
